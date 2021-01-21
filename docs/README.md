@@ -1,7 +1,7 @@
 ---
 home: true
 actionText: GO →
-actionLink: /zh/guide/
+actionLink: /web-front/
 features:
 - title: 初衷
   details: 积累自己工作与日常学习的知识
