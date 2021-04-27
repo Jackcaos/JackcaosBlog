@@ -18,13 +18,17 @@ module.exports = {
             'home2'
           ],
           '/react/': [
-            'home1'
+            {
+              title: '搭建Typescript+React环境',
+              collapsable: true,
+              children: ['tsreact']
+            }
           ]
         },
         lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间
         nav:[
             { text: '前端基础', link: '/web-front/home1' }, // 内部链接 以docs为根目录
-            { text: 'React', link: '/react/home1' }, // 外部链接
+            { text: 'React', link: '/react/tsreact' }, // 外部链接
             { text: 'Vue', link: '/vue' },
             { text: '工程化', link: '/engineering'},
             { text: 'Node', link: '/node'},
