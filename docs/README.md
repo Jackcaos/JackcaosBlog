@@ -1,12 +1,1 @@
----
-home: true
-actionText: GO →
-actionLink: /web-front/
-features:
-- title: 初衷
-  details: 积累自己工作与日常学习的知识
-- title: 动力
-  details: 构建自己的前端技术的体系
-- title: 梦想
-  details: 成为真正的 Web Developer
----
+prod为主编写分支，gh-pages为发布分支，从prod打包的代码到gh-pages发布。
