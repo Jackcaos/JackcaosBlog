@@ -22,6 +22,11 @@ module.exports = {
               title: '搭建Typescript+React环境',
               collapsable: true,
               children: ['tsreact']
+            },
+            {
+              title: 'redux的原理解析',
+              collapsable: true,
+              children: ['redux']
             }
           ]
         },
