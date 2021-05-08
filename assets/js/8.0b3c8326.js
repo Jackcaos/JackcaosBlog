@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{371:function(t,e,s){"use strict";s.r(e);var n=s(42),o=Object(n.a)({},(function(){var t=this.$createElement,e=this._self._c||t;return e("ContentSlotsDistributor",{attrs:{"slot-key":this.$parent.slotKey}},[e("p",[this._v("prod为主编写分支，gh-pages为发布分支，从prod打包的代码到gh-pages发布。")])])}),[],!1,null,null,null);e.default=o.exports}}]);
