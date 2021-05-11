@@ -14,7 +14,11 @@ module.exports = {
         // sidebarDepth: 0, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
         sidebar: {
           '/web-front/': [
-            'home1',
+            {
+              title: '函数式编程',
+              collapsable: true,
+              children: ['functional']
+            },
             'home2'
           ],
           '/react/': [
@@ -32,7 +36,7 @@ module.exports = {
         },
         lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间
         nav:[
-            { text: '前端基础', link: '/web-front/home1' }, // 内部链接 以docs为根目录
+            { text: '前端基础', link: '/web-front/functional' }, // 内部链接 以docs为根目录
             { text: 'React', link: '/react/tsreact' }, // 外部链接
             { text: 'Vue', link: '/vue' },
             { text: '工程化', link: '/engineering'},
