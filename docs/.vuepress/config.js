@@ -19,7 +19,7 @@ module.exports = {
               collapsable: true,
               children: ['functional']
             },
-            'home2'
+            'lighthouse'
           ],
           '/react/': [
             {
