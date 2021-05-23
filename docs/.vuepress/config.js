@@ -19,7 +19,8 @@ module.exports = {
               collapsable: true,
               children: ['functional']
             },
-            'lighthouse'
+            'lighthouse',
+            'eventloop'
           ],
           '/react/': [
             {
