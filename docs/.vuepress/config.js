@@ -33,14 +33,20 @@ module.exports = {
               collapsable: true,
               children: ['redux']
             }
+          ],
+          '/engineering/': [
+            {
+              title: '前端工程化',
+              collapsable: true,
+              children: ['babelrc']
+            }
           ]
         },
         lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间
         nav:[
             { text: '前端基础', link: '/web-front/functional' }, // 内部链接 以docs为根目录
             { text: 'React', link: '/react/tsreact' }, // 外部链接
-            { text: 'Vue', link: '/vue' },
-            { text: '工程化', link: '/engineering'},
+            { text: '工程化', link: '/engineering/babelrc'},
             { text: 'Node', link: '/node'},
             { text: '算法', link: '/algorithm'},
             // 下拉列表
