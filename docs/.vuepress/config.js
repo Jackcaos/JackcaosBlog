@@ -36,9 +36,14 @@ module.exports = {
           ],
           '/engineering/': [
             {
-              title: '前端工程化',
+              title: 'babel',
               collapsable: true,
               children: ['babelrc']
+            },
+            {
+              title: '前端工程化的新星——Vite',
+              collapsable: true,
+              children: ['vite']
             }
           ]
         },
