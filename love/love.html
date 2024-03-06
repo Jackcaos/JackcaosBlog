@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>To Wensi</title>
   </head>
   <style>
     body {
@@ -29,12 +29,12 @@
     .happy {
       position: relative;
       display: inline-block;
-      color: #333333;
+      /* color: #FF6699; */
     }
     .english {
       position: relative;
       display: inline-block;
-      color: #333333;
+      /* color: ; */
     }
     .wrap {
       position: relative;
@@ -57,6 +57,14 @@
       font-size: 14px;
       text-align: center;
       color: #333333;
+    }
+    .name {
+      position: relative;
+      float: right;
+      padding-right: 15px;
+      position: relative;
+      top: 60px;
+      font-size: 14px;
     }
   </style>
   <body>
@@ -86,26 +94,43 @@
       </div>
       <div class="wish">
       </div>
+      <div class="name">
+      </div>
       <!-- 把黑色的背景变成粉色 -->
     </div>
 
     <script>
+      let first = false, sec = false, thr = false;
       function firstError() {
+        first = true;
         alert("谭老师发出尖锐的暴鸣：怎么可能是香椿！！！");
+        document.getElementsByClassName("fisrt")[0].style.color = "red";
       }
       function secError() {
-        alert("鸭头？你会不会最近吃腻了诶～");
+        sec = true;
+        alert("鸭头？会不会最近吃腻了诶～");
+        document.getElementsByClassName("sec")[0].style.color = "red";
       }
       function thrError() {
+        thr = true;
         alert("小曹摸了摸口袋，好像没有钱诶...");
+        document.getElementsByClassName("thr")[0].style.color = "red";
       }
       function fourthError() {
-        alert("Good idea!");
-        alert("那就先清除干净问题吧～");
-        document.getElementsByClassName("ask")[0].style.display = "none";
-        setTimeout(() => {
-          print();
-        }, 1000);
+        if (first === false) {
+          alert("要不先看看A？")
+        } else if (sec === false) {
+          alert("啊？谭老师你不喜欢吃鸭脖了？")
+        } else if (thr === false) {
+          alert("可是，可是你不喜欢可爱的玲娜贝儿么？")
+        } else {
+          alert("Good idea!");
+          alert("那就先清除干净问题吧～");
+          document.getElementsByClassName("ask")[0].style.display = "none";
+          setTimeout(() => {
+            print();
+          }, 1000);
+        }
       }
 
       function print() {
@@ -130,9 +155,9 @@
         let dom = document.querySelector(".tips");
         let dom1 = document.querySelector(".happy");
         let dom2 = document.querySelector(".english");
-        let tipsArr = "第二步，打出节日的祝福～".split("");
-        let data = "祝谭老师女神节快乐～";
-        let dataFromEnglish = "Happy Goddess Day～";
+        let tipsArr = "第二步，打出节日的祝福".split("");
+        let data = "祝谭老师女生节快乐";
+        let dataFromEnglish = "Happy Girl's Day～";
         let index = 0,
           dindex = 0,
           eindex = 0;
@@ -160,16 +185,16 @@
         let dom = document.querySelector(".tips");
         let dom1 = document.querySelector(".happy");
         let dom2 = document.querySelector(".english");
-        let tipsArr = "第三步，移动下位置，并修改下字体的大小。".split("");
+        let tipsArr = "第三步，移动下位置，并修改下字体的颜色。".split("");
         dom.innerHTML = ""
-        let index = 0, top = 0, left = 0, font = 14;
+        let index = 0, top = 0, left = 0, left2 = 0, font = 14;
         writing()
         function writing() {
           if (index < tipsArr.length) {
             dom.innerHTML += tipsArr[index];
             setTimeout(writing.bind(this), 150, ++index);
           } else {
-            if (top < 128) {
+            if (top < 145) {
               setTimeout(() => {
                 top += 2;
                 dom1.style.top = `${top}vw`;
@@ -177,11 +202,12 @@
                 writing();
               }, 80)
             } else {
-              if (left <= 27) {
+              if (left <= 32) {
                 setTimeout(() => {
                   left += 2;
+                  left2 += 2.1
                   dom1.style.left = `${left}vw`;
-                  dom2.style.left = `${left}vw`;
+                  dom2.style.left = `${left2}vw`;
                   writing();
                 }, 100)
               } else {
@@ -193,7 +219,11 @@
                     writing();
                   }, 200)
                 } else {
-                  print4();
+                  setTimeout(() => {
+                    dom1.style.color = "#FF6699";
+                    dom2.style.color = "#FF6699";
+                    print4();
+                  }, 1000)
                 }
               }
             }
@@ -205,8 +235,8 @@
         let dom1 = document.querySelector(".wish");
         dom.innerHTML = ""
         let tipsArr = "最后送上我诚挚的祝福".split("");
-        let data = "玫瑰终会枯萎🥀，但浪漫永远至死不渝。愿少年与爱永不老去，即便披荆斩棘，丢失怒马鲜衣💗。Give my best wishes to you";
-        let index = 0, flag = false, eindex = 0;
+        let data = "玫瑰终会枯萎🥀，但浪漫永远至死不渝。愿少年与爱永不老去，即便披荆斩棘，丢失怒马鲜衣💗。Give my best wishes to you!";
+        let index = 0, flag = false, eindex = 0, a = 1;
         writing()
         function writing() {
           if (index < tipsArr.length) {
@@ -214,12 +244,15 @@
             setTimeout(writing.bind(this), 150, ++index);
           } else {
             if (!flag) {
-              document.getElementsByClassName("tips")[0].style.opacity = 0;
               document.getElementsByClassName("wrap")[0].classList.add("fade");
               flag = true;
               writing()
             } else {
               if (eindex < data.length-1) {
+                if (a > 0) {
+                  a = a - 0.1;
+                  document.getElementsByClassName("tips")[0].style.opacity = a;
+                }
                 setTimeout(() => {
                   dom1.innerHTML += data[eindex];
                   if (data[eindex] === "。") {
@@ -228,8 +261,22 @@
                   writing()
                   eindex++;
                 }, 200)
+              } else {
+                print5()
               }
             }
+          }
+        }
+      }
+      function print5() {
+        let dom1 = document.getElementsByClassName("name")[0];
+        let data = "—— Jackcaos";
+        let index = 0;
+        writing();
+        function writing() {
+          if (index < data.length) {
+            dom1.innerHTML += data[index];
+            setTimeout(writing.bind(this), 150, ++index);
           }
         }
       }
