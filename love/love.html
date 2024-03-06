@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      margin: 0px;
+    }
+    .ask {
+      /* background-color: black; */
+      font-size: 16px;
+      padding: 4px;
+      /* color: #fff; */
+    }
+    .problem {
+      padding: 6px 0;
+      /* color: pink; */
+    }
+    .pink {
+      /* background-color: #FF9999; */
+      background-color: #ffa4af;
+      height: 100vh;
+      opacity: 1;
+      transition: all 2s;
+    }
+    .happy {
+      position: relative;
+      display: inline-block;
+      color: #333333;
+    }
+    .english {
+      position: relative;
+      display: inline-block;
+      color: #333333;
+    }
+    .wrap {
+      position: relative;
+      top: 50px;
+      bottom: 50px;
+      text-align: center;
+      opacity: 0;
+    }
+    .fade { 
+      opacity: 1;
+      transition: opacity 3s;
+    }
+    .img {
+      height: 282px;
+      width: 209px;
+    }
+    .wish {
+      position: relative;
+      top: 60px;
+      font-size: 14px;
+      text-align: center;
+      color: #333333;
+    }
+  </style>
+  <body>
+    <div class="root">
+      <div class="ask">
+        <p>请问3.7小曹会给谭老师准备什么节日礼物🎁？</p>
+        <div class="problem fisrt" onclick="firstError()">
+          <span>A.</span><span>香椿🍂</span>
+        </div>
+        <div class="problem sec" onclick="secError()">
+          <span>B.</span><span>鸭头🦆</span>
+        </div>
+        <div class="problem thr" onclick="thrError()">
+          <span>C.</span><span>送一个玲娜贝儿玩偶🧸</span>
+        </div>
+        <div class="problem four" onclick="fourthError()">
+          <span>D.</span><span>教她写一段代码💻</span>
+        </div>
+      </div>
+      <div class="tips"></div>
+      <div class="happy"></div>
+      <!-- <div></div> -->
+      <br/>
+      <div class="english"></div>
+      <div class="wrap">
+        <img src="https://storage.360buyimg.com/leo/161709725261_.pic.jpg" alt="图片" class="img">
+      </div>
+      <div class="wish">
+      </div>
+      <!-- 把黑色的背景变成粉色 -->
+    </div>
+
+    <script>
+      function firstError() {
+        alert("谭老师发出尖锐的暴鸣：怎么可能是香椿！！！");
+      }
+      function secError() {
+        alert("鸭头？你会不会最近吃腻了诶～");
+      }
+      function thrError() {
+        alert("小曹摸了摸口袋，好像没有钱诶...");
+      }
+      function fourthError() {
+        alert("Good idea!");
+        alert("那就先清除干净问题吧～");
+        document.getElementsByClassName("ask")[0].style.display = "none";
+        setTimeout(() => {
+          print();
+        }, 1000);
+      }
+
+      function print() {
+        let dom = document.querySelector(".tips");
+        let tipsArr = "第一步，我们把背景变成节日的粉色吧～".split("");
+        let index = 0;
+        writing();
+        function writing() {
+          if (index < tipsArr.length) {
+            dom.innerHTML += tipsArr[index];
+            setTimeout(writing.bind(this), 150, ++index);
+          } else {
+            setTimeout(() => {
+              document.getElementsByClassName("root")[0].classList.add("pink");
+              dom.innerHTML = "";
+              print2();
+            }, 2000);
+          }
+        }
+      }
+      function print2() {
+        let dom = document.querySelector(".tips");
+        let dom1 = document.querySelector(".happy");
+        let dom2 = document.querySelector(".english");
+        let tipsArr = "第二步，打出节日的祝福～".split("");
+        let data = "祝谭老师女神节快乐～";
+        let dataFromEnglish = "Happy Goddess Day～";
+        let index = 0,
+          dindex = 0,
+          eindex = 0;
+        writing();
+        function writing() {
+          if (index < tipsArr.length) {
+            dom.innerHTML += tipsArr[index];
+            setTimeout(writing.bind(this), 150, ++index);
+          } else {
+            if (dindex < data.length) {
+              dom1.innerHTML += data[dindex];
+              setTimeout(writing.bind(this), 200, ++dindex);
+            } else {
+              if (eindex < dataFromEnglish.length) {
+                dom2.innerHTML +=dataFromEnglish[eindex];
+                setTimeout(writing.bind(this), 200, ++eindex);
+              } else {
+                print3();
+              }
+            }
+          }
+        }
+      }
+      function print3() {
+        let dom = document.querySelector(".tips");
+        let dom1 = document.querySelector(".happy");
+        let dom2 = document.querySelector(".english");
+        let tipsArr = "第三步，移动下位置，并修改下字体的大小。".split("");
+        dom.innerHTML = ""
+        let index = 0, top = 0, left = 0, font = 14;
+        writing()
+        function writing() {
+          if (index < tipsArr.length) {
+            dom.innerHTML += tipsArr[index];
+            setTimeout(writing.bind(this), 150, ++index);
+          } else {
+            if (top < 128) {
+              setTimeout(() => {
+                top += 2;
+                dom1.style.top = `${top}vw`;
+                dom2.style.top = `${top}vw`;
+                writing();
+              }, 80)
+            } else {
+              if (left <= 27) {
+                setTimeout(() => {
+                  left += 2;
+                  dom1.style.left = `${left}vw`;
+                  dom2.style.left = `${left}vw`;
+                  writing();
+                }, 100)
+              } else {
+                if (font < 7) {
+                  setTimeout(() => {
+                    font++;
+                    dom1.style.fontSize = `${font}vw`;
+                    dom2.style.fontSize = `${font}vw`;
+                    writing();
+                  }, 200)
+                } else {
+                  print4();
+                }
+              }
+            }
+          }
+        }
+      }
+      function print4() {
+        let dom = document.querySelector(".tips");
+        let dom1 = document.querySelector(".wish");
+        dom.innerHTML = ""
+        let tipsArr = "最后送上我诚挚的祝福".split("");
+        let data = "玫瑰终会枯萎🥀，但浪漫永远至死不渝。愿少年与爱永不老去，即便披荆斩棘，丢失怒马鲜衣💗。Give my best wishes to you";
+        let index = 0, flag = false, eindex = 0;
+        writing()
+        function writing() {
+          if (index < tipsArr.length) {
+            dom.innerHTML += tipsArr[index];
+            setTimeout(writing.bind(this), 150, ++index);
+          } else {
+            if (!flag) {
+              document.getElementsByClassName("tips")[0].style.opacity = 0;
+              document.getElementsByClassName("wrap")[0].classList.add("fade");
+              flag = true;
+              writing()
+            } else {
+              if (eindex < data.length-1) {
+                setTimeout(() => {
+                  dom1.innerHTML += data[eindex];
+                  if (data[eindex] === "。") {
+                    dom1.innerHTML += "<br/>"
+                  }
+                  writing()
+                  eindex++;
+                }, 200)
+              }
+            }
+          }
+        }
+      }
+    </script>
+    
+  </body>
+</html>
